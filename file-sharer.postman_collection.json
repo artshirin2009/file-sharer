@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a5971d4e-54f8-43d5-81dd-8a1c87d1f556",
+		"_postman_id": "95961593-3b78-4909-bd2a-800b031a5088",
 		"name": "file-sharer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,26 +25,26 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "imgUploader",
-							"type": "file",
-							"src": "/C:/Users/agent/Desktop/adminhot-product_250x250.jpg"
+							"key": "userName",
+							"value": "user2",
+							"type": "text"
 						},
 						{
-							"key": "userName",
-							"value": "user1",
-							"type": "text"
+							"key": "img",
+							"type": "file",
+							"src": "/C:/Users/agent/Desktop/adminhot-product_250x250.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/create",
+					"raw": "http://localhost:3000/avatars",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"create"
+						"avatars"
 					],
 					"query": [
 						{
@@ -61,9 +61,24 @@
 			"name": "get-image",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudCI6InVzZXIyIiwiaWF0IjoxNTcyMzUxODUxLCJleHAiOjE1NzI0MzgyNTF9.zntC7Hk2pWi0kioGVECcHUpCpS9nuiDdp2kPMWr5tUs",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": ""
+					"raw": "localhost:3000/images/user2/1572351851877.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"images",
+						"user2",
+						"1572351851877.jpg"
+					]
 				}
 			},
 			"response": []

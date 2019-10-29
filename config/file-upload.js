@@ -2,6 +2,7 @@ var multer = require('multer');
 var mkdirp = require('mkdirp');
     
 var storage = multer.diskStorage({
+    
     destination: function (req, file, callback) {
         let folderToSave = `./public/images/${req.body.userName}`
         mkdirp.sync(folderToSave);

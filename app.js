@@ -1,3 +1,4 @@
+var verifyToken = require('./config/verifyToken');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,12 +10,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 
 var testRoute = require('./routes/test');
 app.use('/', testRoute);
 
+let fileShare = require('./routes/avatar')
+app.use('/', fileShare);
+
+
+app.use(verifyToken, express.static('public'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

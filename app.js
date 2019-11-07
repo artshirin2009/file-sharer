@@ -18,7 +18,10 @@ let fileShare = require('./routes/avatar')
 app.use('/', fileShare);
 
 
-app.use(verifyToken, express.static('public'));
+
+app.use(
+  //verifyToken,
+   express.static('public'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -33,7 +36,7 @@ app.use(function(err, req, res, next) {
 });
 
 var http = require('http');
-var port = 3000;
+var port = 3001;
 app.set('port', port);
 var server = http.createServer(app);
 server.listen(port);

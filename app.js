@@ -1,3 +1,4 @@
+require('dotenv').config()
 var verifyToken = require('./config/verifyToken');
 var createError = require('http-errors');
 var express = require('express');
@@ -14,7 +15,7 @@ app.use(cookieParser());
 var testRoute = require('./routes/test');
 app.use('/', testRoute);
 
-let fileShare = require('./routes/avatar')
+let fileShare = require('./routes/routes')
 app.use('/', fileShare);
 
 

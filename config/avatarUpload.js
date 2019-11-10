@@ -1,5 +1,6 @@
 var multer = require('multer');
 var mkdirp = require('mkdirp');
+const path = require('path');
 const fs = require('fs');
 
 let folderToSave;
@@ -12,9 +13,9 @@ var storage = multer.diskStorage({
     filename: function (req, file, callback) {
         fs.readdir(folderToSave, (err, files) => {
             if (files.length > 0) {
-                callback(null, files[0]);
+                callback(null, `${path.parse(files[0]).name}${path.parse(file.originalname).ext}`);
             } else {
-                callback(null, Date.now() + file.originalname.toString().slice(-4));
+                callback(null, `${Date.now()}${path.parse(file.originalname).ext}`);
             }
         });
     }
